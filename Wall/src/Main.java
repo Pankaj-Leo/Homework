@@ -1,21 +1,52 @@
-import java.util.Scanner;
+public class Main extends Object {
 
-public class Main {
+    public static void main(String[] args) {
 
-    public static void main(String [] args) {
-        Scanner sc= new Scanner(System.in);    //System.in is a standard input stream
-        System.out.print("Enter width number- ");
-        double a= sc. nextDouble();
-        System.out.print("Enter Height number- ");
-        double b= sc. nextDouble();
-        Wall wall = new Wall(5,4);
-        System.out.println("area = " + wall.getArea());
-        //wall.setHeight(-1.5);
-        wall.setWidth(a);
-        wall.setHeight(b);
-        System.out.println("width = " + wall.getWidth());
-        System.out.println("height = " + wall.getHeight());
-        System.out.println("area = " + wall.getArea());
-    } // main method
+        Student max = new Student("Max", 21);
+        System.out.println(max);
 
+        PrimarySchoolStudent jimmy = new PrimarySchoolStudent("Jimmy", 8,
+                "Carole");
+        System.out.println(jimmy);
+    }
+}
+
+class Student {
+
+    private String name;
+    private int age;
+
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+//    @Override
+//    public String toString() {
+//        return super.toString();
+//    }
+
+    @Override
+    public String toString() {
+        return name + " is " + age;
+//        return "Student{" +
+//                "name='" + name + '\'' +
+//                ", age=" + age +
+//                '}';
+    }
+}
+
+class PrimarySchoolStudent extends Student {
+
+    private String parentName;
+
+    PrimarySchoolStudent(String name, int age, String parentName) {
+        super(name, age);
+        this.parentName = parentName;
+    }
+
+    @Override
+    public String toString() {
+        return parentName + "'s kid, " + super.toString();
+    }
 }
